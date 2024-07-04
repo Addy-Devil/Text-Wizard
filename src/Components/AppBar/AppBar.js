@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, Toolbar, Grid} from '@mui/material';
-import Logo from '../Assets/logo.jpg';
+import Logo from '../../Assets/newlogo.png';
 import Switch from '@mui/material/Switch';
 
 
@@ -16,7 +16,7 @@ function AppBar1({check,change}) {
    
  }}> 
     <Toolbar >
-   <img src={Logo} alt="Logo" style={{ maxWidth:'25%'}} /> 
+    <img src={Logo} alt="Logo" style={{ maxWidth:'25%'}} />  
    {/* <IconButton aria-label="fingerprint" color="#76B39D">
    <AutoStoriesIcon/>
 </IconButton> 
