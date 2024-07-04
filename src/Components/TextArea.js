@@ -12,6 +12,8 @@ export default function TextareaRows() {
         EXPRESS YOURSELF...
       <Textarea
         placeholder="Let's dive in…"
+        value={text}
+        onChange={(event) => setText(event.target.value)}
         variant="outlined"
         minRows={10}
         startDecorator={
