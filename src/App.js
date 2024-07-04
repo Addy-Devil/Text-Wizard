@@ -1,7 +1,14 @@
+import React from 'react';
+import TextareaRows from './Components/TextArea';
+
 function App() {
   return (
-    <>hellooo
-    </>
+    <div>
+      < TextareaRows />
+
+      {/* < ButtonUsage /> */}
+
+    </div>
   );
 }
 
