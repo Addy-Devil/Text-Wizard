@@ -14,7 +14,7 @@ export default function ButtonUsage(props) {
         
         onClick={props.click}
         
-        >
+      >
           {props.content}
         </Button>
        
