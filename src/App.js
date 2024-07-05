@@ -1,15 +1,12 @@
 import React from 'react';
 import TextareaRows from './Components/TextArea';
-import ButtonUsage from './Components/ButtonUsage';
+//import ButtonUsage from './Components/ButtonUsage';
 
 function App() {
-  return (
+   
+return (
     <div>
       < TextareaRows />
-
-      < ButtonUsage content="SUBSCRIBE!" />
-      < ButtonUsage content="SUBSCRIBE!" />
-
     </div>
   );
 }
