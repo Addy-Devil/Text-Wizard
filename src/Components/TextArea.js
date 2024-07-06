@@ -13,11 +13,6 @@ export default function TextareaRows() {
   const [text,setText] = useState();
   
 
-  const handleOnChange = (event)=>{
-    console.log("On change");
-    setText(event.target.value);
-  };
- 
   const checkIfEmpty = (action) => () => {
     if (text === '') {
       alert('Enter some character');
@@ -25,6 +20,13 @@ export default function TextareaRows() {
       action();
     }
   };
+
+  const handleOnChange = (event)=>{
+    console.log("On change");
+    setText(event.target.value);
+  };
+ 
+  
   
    const handleUpClick = ()=>{
      console.log("Uppercase was clicked");
