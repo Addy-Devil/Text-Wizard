@@ -4,17 +4,12 @@ import { blueGrey } from "@mui/material/colors";
 
 
 export default function ButtonUsage(props) {
-    
-
-  return (
+    return (
     <>
       <Button
         variant="contained"
         style={{ backgroundColor: blueGrey }}
-        
-        onClick={props.click}
-        
-      >
+        onClick={props.click}>
           {props.content}
         </Button>
        

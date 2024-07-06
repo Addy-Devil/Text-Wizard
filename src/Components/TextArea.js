@@ -5,12 +5,14 @@ import IconButton from '@mui/joy/IconButton';
 import ButtonUsage from './ButtonUsage';
 import { useState } from "react";
 import EmojiPicker from 'emoji-picker-react';
+import '../index.css';
+import Typography from '@mui/material/Typography';
 
 export default function TextareaRows() {
-  const [content,setContent]=useState(null);
+  
   const upperCase = () => {
     let Upcase=text.toUpperCase();
-    setText(Upcase);
+    setText(Upcase);;
     setContent("UpperCased!!!")}
 
   const lowCase = () =>{
@@ -20,11 +22,34 @@ export default function TextareaRows() {
 
   const handleOnClick = () => {
       setBtext("Subscribed!!:)");
-      setColor("green");
-      };
-        const [btext, setBtext] = useState("Subscribe?");
-        const [color, setColor] = useState(" black");
+      setColor("green");};
+
+  const makeItBold = () => {
+      let ntext=String(text);
+      let boldtext=ntext.bold();
+      setText(boldtext);};
   
+  const handleClearClick = ()=> {
+      console.log("All text cleared");
+      setText('');};
+    
+  const copyText=()=>{
+      if(text){
+          navigator.clipboard.writeText(text)
+          alert("Text copied!");}
+      };
+  
+  // const checkIfEmpty = (action) => () => {
+  //     if (text === '') {
+  //         alert('Enter some character');
+  //       } else {
+  //         action();
+  //       }
+  //     };
+
+  const [btext, setBtext] = useState("Subscribe?");
+  const [color, setColor] = useState(" black");
+  const [content,setContent]=useState(null);
   const [text, setText] = useState('');
   const addEmoji = (emoji) => () =>setText(`${text}${emoji}`);   {/*template literals*/}
   
@@ -51,8 +76,13 @@ export default function TextareaRows() {
     <ButtonUsage click={upperCase} content="Convert to UpperCase?" />
     <ButtonUsage click={lowCase} content="Convert to LowerCase?"/>
     <ButtonUsage click={handleOnClick} content={btext} />
-    {/* <ButtonUsage click={makeItBold} content="Bold" /> */}
+    <ButtonUsage click={makeItBold} content="Bold" /> 
+    <ButtonUsage click={copyText} content="Copy Text" />
+    <ButtonUsage click={handleClearClick}  content="Clear All" />
     
+    <Typography>
+        You've entered {(text.split(" ").length)} words and {(text.length)} characters.
+    </Typography>
     </>
   );
   };
