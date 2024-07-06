@@ -39,13 +39,13 @@ export default function TextareaRows() {
           alert("Text copied!");}
       };
   
-  // const checkIfEmpty = (action) => () => {
-  //     if (text === '') {
-  //         alert('Enter some character');
-  //       } else {
-  //         action();
-  //       }
-  //     };
+  const checkIfEmpty = (action) => () => {
+      if (text === '') {
+           alert('Enter some character');
+         } else {
+           action();
+         }
+       };
 
   const [btext, setBtext] = useState("Subscribe?");
   const [color, setColor] = useState(" black");
@@ -73,7 +73,7 @@ export default function TextareaRows() {
              </Box>}
       />
     </Box>
-    <ButtonUsage click={upperCase} content="Convert to UpperCase?" />
+    <ButtonUsage click={checkIfEmpty(upperCase)} content="Convert to UpperCase?" />
     <ButtonUsage click={lowCase} content="Convert to LowerCase?"/>
     <ButtonUsage click={handleOnClick} content={btext} />
     <ButtonUsage click={makeItBold} content="Bold" /> 
