@@ -1,15 +1,17 @@
 import React from 'react';
 import TextareaRows from './Components/TextArea';
-import ButtonUsage from './Components/ButtonUsage';
+
+
+//import ButtonUsage from './Components/ButtonUsage';
+//import EmojiPicker from 'emoji-picker-react';
 
 function App() {
-  return (
-    <div>
+   
+return (
+    <div >
+       
       < TextareaRows />
-
-      < ButtonUsage content="SUBSCRIBE!" />
-      < ButtonUsage content="SUBSCRIBE!" />
-
+      {/* <EmojiPicker /> */}
     </div>
   );
 }

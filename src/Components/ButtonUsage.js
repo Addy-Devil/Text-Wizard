@@ -1,14 +1,20 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import { blueGrey } from "@mui/material/colors";
 
-const ButtonUsage = ({ label, onClick }) => {
-  return (<>
-     
-         <Button onClick={onClick}>
-          {label}
-        </Button> 
+
+export default function ButtonUsage(props) {
+    return (
+    <>
+      <Button
+        variant="contained"
+        style={{ backgroundColor: blueGrey }}
+        onClick={props.click}>
+          {props.content}
+        </Button>
        
-     </>
+      
+      
+    </>
   );
 };
-export default ButtonUsage;
