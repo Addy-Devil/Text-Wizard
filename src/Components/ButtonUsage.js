@@ -7,8 +7,9 @@ export default function ButtonUsage(props) {
     return (
     <>
       <Button
-        variant="contained"
-        style={{ backgroundColor: blueGrey }}
+        variant="outlined"
+        fullWidth
+        style={{ backgroundColor: "black", color:'bisque'}}
         onClick={props.click}>
           {props.content}
         </Button>
