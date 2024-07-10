@@ -7,6 +7,9 @@ import { useState } from "react";
 import EmojiPicker from "emoji-picker-react";
 import "../index.css";
 import Typography from "@mui/material/Typography";
+import Draggable from 'react-draggable';
+import { grey } from "@mui/material/colors";
+import { Grid } from "@mui/joy";
 
 export default function TextareaRows() {
   const [btext, setBtext] = useState("");
@@ -16,6 +19,7 @@ export default function TextareaRows() {
   const [boldt, setBoldt] = useState(false);
   const [italicT, setItalicT] = useState(false);
   const [emojiB, setEmojiB] = useState(false);
+
 
   const handleEmoji = () => {
     emojiB === false ? setEmojiB(true) : setEmojiB(false);
@@ -76,10 +80,31 @@ const handleEmojiClick = (emoji) => {
     <>
       <Box sx={{ p: 5, "--Textarea-focused": 1 }}>
         {/* text box pe border : naya tareeka  */}
-        <Typography variant="h4" pb={3}>
-          {" "}
-          Text-Editor{" "}
+      
+        <Typography variant="h4" pb={3} sx={{fontFamily:'monospace'}}>
+          Text-Editor
         </Typography>
+        
+        <Grid container spacing={6} >
+        <Grid item xs={12} sm={6} md={4} lg={3} xl={2} >
+        <Draggable>
+                <Box 
+                  sx={{
+                    position: 'relative',
+                    borderRadius: '8%',
+                    overflow: 'auto',                   }}
+                    > 
+                {/* <Button onClick={handleEmoji}>Click to open emoji bar </Button> */}
+                <EmojiPicker onEmojiClick={handleEmojiClick} open={emojiB === false ? false : true} />
+                </Box>
+            
+              </Draggable>
+</Grid>
+<Grid item xs={12} sm={6} md={4} lg={3} xl={2} >
+<Button onClick={handleEmoji}>Click to open emoji bar </Button>
+</Grid>
+<Grid item xs={12} sm={6} md={4} lg={3} xl={2} >
+
         <Textarea
           sx={{
             fontWeight: boldt === true ? "bold" : "normal",
@@ -93,37 +118,34 @@ const handleEmojiClick = (emoji) => {
           minRows={10}
           startDecorator={
             <Box>
-              <IconButton
-                variant="outlined"
-                color="neutral"
-                onClick={addEmoji("👍")}
-              >
-                👍
-              </IconButton>
-              <Button onClick={handleEmoji}>Click to open emoji bar </Button>{" "}
-              <EmojiPicker onEmojiClick={handleEmojiClick} open={emojiB === false ? false : true} />
-            </Box>
+              
+              
+              </Box>
           }
-        />
-      </Box>
+        /> 
+        </Grid></Grid>
+       </Box>
+        <Grid item xs={12} sm={6} md={4} lg={3} xl={2} >
+      
       <ButtonUsage
         click={checkIfEmpty(upperCase)}
         content="Convert to UpperCase?"
       />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3} xl={2} >
       <ButtonUsage click={lowCase} content="Convert to LowerCase?" />
       <ButtonUsage click={handleOnClick} content={btext} />
       <ButtonUsage click={makeItBold} content="Bold" />
 
       <ButtonUsage click={makeItalic} content="Italic" />
       <ButtonUsage click={copyText} content="Copy Text" />
-      <ButtonUsage click={handleClearClick} content="Clear All" />
-
+      {/* <ButtonUsage click={handleClearClick} content="Clear All" /> */}
+      <ButtonUsage onClick={() => setText('')}> Clear Button</ButtonUsage>
+</Grid>
       <Typography>
         You've entered {text.split(" ").length} words and {text.length}{" "}
         characters.
-      </Typography>
-    </>
-  );
-  };
-   
-  
+      </Typography> 
+</>  
+  )}
+ 
