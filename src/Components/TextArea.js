@@ -100,8 +100,8 @@ const handleEmojiClick = (emoji) => {
               >
                 👍
               </IconButton>
-              <Button onClick={handleEmoji}>Click to open emoji bar </Button>{" "}
-              <EmojiPicker onEmojiClick={handleEmojiClick} open={emojiB === false ? false : true} />
+              <IconButton  onClick={handleEmoji}>emojis! </IconButton>
+              <EmojiPicker onEmojiClick={handleEmojiClick} open={emojiB} />
             </Box>
           }
         />
