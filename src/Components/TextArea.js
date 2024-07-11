@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Draggable from "react-draggable";
 import { grey } from "@mui/material/colors";
 import { Grid } from "@mui/joy";
+import MyStopwatch from "./countUpTimer/countUpTimer";
 
 export default function TextareaRows() {
   const [btext, setBtext] = useState("");
@@ -19,6 +20,7 @@ export default function TextareaRows() {
   const [boldt, setBoldt] = useState(false);
   const [italicT, setItalicT] = useState(false);
   const [emojiB, setEmojiB] = useState(false);
+
 
   const handleEmoji = () => {
     emojiB === false ? setEmojiB(true) : setEmojiB(false);
@@ -156,6 +158,7 @@ export default function TextareaRows() {
         You've entered {text===""?0:text[text.length-1]===" "?text.split(" ").length-1:text.split(" ").length} words and {text.length}{" "}
         characters.
       </Typography>
+      <MyStopwatch/>
       </Box>
     </>
   );
