@@ -7,12 +7,13 @@ export default function ButtonUsage(props) {
     return (
     <>
       <Button
-        variant="outlined"
+        //variant="outlined"
         fullWidth
-        style={{ backgroundColor: "black", color:'bisque'}}
+        style={{ backgroundColor: "black", color:'bisque' , borderRadius: '50px'}}
         onClick={props.click}>
           {props.content}
         </Button>
+
     </>
   );
 };

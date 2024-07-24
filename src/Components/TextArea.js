@@ -1,16 +1,19 @@
 import * as React from "react";
 import { Box, Button } from "@mui/material";
 import Textarea from "@mui/joy/Textarea";
-import IconButton from "@mui/joy/IconButton";
+//import IconButton from "@mui/joy/IconButton";
 import ButtonUsage from "./ButtonUsage";
 import { useState } from "react";
 import EmojiPicker from "emoji-picker-react";
 import "../index.css";
 import Typography from "@mui/material/Typography";
-import Draggable from "react-draggable";
-import { grey } from "@mui/material/colors";
+//import Draggable from "react-draggable";
+//import { grey } from "@mui/material/colors";
 import { Grid } from "@mui/joy";
 import MyStopwatch from "./countUpTimer/countUpTimer";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
 
 export default function TextareaRows() {
   const [btext, setBtext] = useState("");
@@ -83,26 +86,7 @@ export default function TextareaRows() {
         <Typography variant="h4" pb={4} sx={{ fontFamily: "monospace" }}>
           Text-Editor
         </Typography>
-          {/* <Grid item xs={12} sm={6} md={4} lg={3} xl={2}> */}
-          {/* <Draggable> */}
-          {/* <Box
-                sx={{
-                  position: "relative",
-                  borderRadius: "8%",
-                  overflow: "auto",
-                }}
-              >
-                <EmojiPicker
-                  onEmojiClick={handleEmojiClick}
-                  open={emojiB === false ? false : true}
-                />
-              </Box> */}
-          {/* </Draggable> */}
-          {/* </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-            <Button onClick={handleEmoji}>Click to open emoji bar </Button>
-          </Grid> */}
-          {/* <Grid item xs={12} sm={6} md={4} lg={3} xl={2}> */}
+      
           <Button onClick={handleEmoji} sx={{color:"white", backgroundColor:"green", marginBottom:"10px"}}>Emoji</Button>
           
           <EmojiPicker
@@ -124,12 +108,12 @@ export default function TextareaRows() {
             // onChange={handleOnChange}
             variant="outlined"
             minRows={10}
-            startDecorator={<Box></Box>}
+            
           />
 
-        {/* </Grid> */}
+        
       </Box>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} p={3}>
         <Grid item lg={2} md={4} sm={6} xs={12}>
           <ButtonUsage
             click={checkIfEmpty(upperCase)}
@@ -152,14 +136,45 @@ export default function TextareaRows() {
           <ButtonUsage click={handleClearClick} content="Clear All" />
         </Grid>
       </Grid>
-      <Box mt={3} p={2}>
-        <Typography variant="h4">Preview</Typography>
-      <Typography>
-        You've entered {text===""?0:text[text.length-1]===" "?text.split(" ").length-1:text.split(" ").length} words and {text.length}{" "}
-        characters.
-      </Typography>
-      <MyStopwatch/>
-      </Box>
+      
+        <Typography variant="h4" mt={1} pb={1} sx={{ fontFamily: "monospace" }}>your report</Typography>
+
+      <Grid container  spacing={3} p={2}>
+          <Grid alignItems={"center"} item xs={12} sm={6} md={6} lg={6} xl={6} sx={{height:"100px"}}>
+          <Card style={{borderRadius: '20px', backgroundColor:"bisque"}} >{/*never give width*/}
+      
+              <CardContent>
+              <Typography gutterBottom variant="h5" sx={{ fontFamily: "monospace" }}>
+                  Total Words
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+              You've entered {text===""?0:text[text.length-1]===" "?text.split(" ").length-1:text.split(" ").length} words and {text.length}{" "}
+              characters.
+          
+              </Typography>
+            </CardContent>
+      
+        </Card>
+        </Grid>
+
+          <Grid alignItems={"center"} item xs={12} sm={6} md={6} lg={6} xl={6} sx={{height:"150px"}}>
+           <Card style={{ borderRadius: '20px',backgroundColor:"bisque"}}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" sx={{ fontFamily: "monospace" }} >
+                  Time Spent
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+              <MyStopwatch/>
+          
+              </Typography>
+            </CardContent>
+           
+            
+           </Card>
+          </Grid>
+      </Grid>
+      
+
     </>
   );
 }

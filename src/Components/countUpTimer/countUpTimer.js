@@ -16,7 +16,7 @@ export default function MyStopwatch() {
   
     return (
       <div>
-        <Typography variant='h6' pb={3} >You've Spent :  
+        <Typography >You've Spent :  
              <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span> hours editing.</Typography>
     
         {/* <p>{isRunning ? 'Running' : 'Not running'}</p>

@@ -1,17 +1,16 @@
 import React from 'react';
 import TextareaRows from './Components/TextArea';
-
-
-//import ButtonUsage from './Components/ButtonUsage';
-//import EmojiPicker from 'emoji-picker-react';
+// import {Grid} from '@mui/material';
+// import MediaCard from './Card';
 
 function App() {
    
 return (
     <div >
+       < TextareaRows />
+      
        
-      < TextareaRows />
-      {/* <EmojiPicker /> */}
+
     </div>
   );
 }
