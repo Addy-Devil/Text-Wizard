@@ -1,17 +1,24 @@
 import React from 'react';
 import TextareaRows from './Components/TextArea';
-// import {Grid} from '@mui/material';
-// import MediaCard from './Card';
+//import Switch from '@mui/material/Switch';
+import { useState } from 'react';
+import Button from "@mui/material/Button";
+
+
 
 function App() {
+  const [darkMode,setDarkMode]=useState(false);
+
+  const handleChange=()=>{
+    setDarkMode(true);  }
    
 return (
     <div >
-       < TextareaRows />
-      
-       
-
-    </div>
+       <Button fullWidth
+        style={{ backgroundColor: "black", color:'bisque' , borderRadius: '50px'}}
+        onClick={handleChange}>enable darkMode</Button>
+       < TextareaRows mode={darkMode} />
+      </div>
   );
 }
 

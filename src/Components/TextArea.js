@@ -15,7 +15,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 
-export default function TextareaRows() {
+export default function TextareaRows(props) {
   const [btext, setBtext] = useState("");
   const [color, setColor] = useState(" black");
   const [content, setContent] = useState(null);
@@ -23,6 +23,8 @@ export default function TextareaRows() {
   const [boldt, setBoldt] = useState(false);
   const [italicT, setItalicT] = useState(false);
   const [emojiB, setEmojiB] = useState(false);
+  
+  console.log(props.mode); 
 
 
   const handleEmoji = () => {
@@ -97,11 +99,14 @@ export default function TextareaRows() {
                 />
           <Textarea
             sx={{
+              backgroundColor: props.darkMode === true ? "black" : "white",
+              color:props.darkMode===true ? "white" : "black",
               fontWeight: boldt === true ? "bold" : "normal",
               fontStyle: italicT === true ? "italic" : "normal",
               width: "100%",
               height: "450px",
             }}
+            /*color={props.mode===true? "black" : "white"}*/
             placeholder="Type here"
             value={text}
             onChange={(event) => setText(event.target.value)}
