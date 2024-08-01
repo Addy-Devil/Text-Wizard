@@ -3,7 +3,7 @@ import { Box, Button } from "@mui/material";
 import Textarea from "@mui/joy/Textarea";
 //import IconButton from "@mui/joy/IconButton";
 import ButtonUsage from "./ButtonUsage";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
 import "../index.css";
 import Typography from "@mui/material/Typography";
@@ -17,14 +17,26 @@ import CardContent from '@mui/material/CardContent';
 
 export default function TextareaRows(props) {
   const [btext, setBtext] = useState("");
-  const [color, setColor] = useState(" black");
+  const [color, setColor] = useState("black");
   const [content, setContent] = useState(null);
   const [text, setText] = useState("");
   const [boldt, setBoldt] = useState(false);
   const [italicT, setItalicT] = useState(false);
   const [emojiB, setEmojiB] = useState(false);
+  const [dark, setDark] = useState()
   
   console.log(props.mode); 
+
+  useEffect(() => {
+    if (props.mode===true){
+    setDark(true)
+    }
+    else if (props.mode===false){
+    setDark(false)
+    }
+
+  }, [props.mode])
+  
 
 
   const handleEmoji = () => {
@@ -99,8 +111,8 @@ export default function TextareaRows(props) {
                 />
           <Textarea
             sx={{
-              backgroundColor: props.darkMode === true ? "black" : "white",
-              color:props.darkMode===true ? "white" : "black",
+              backgroundColor: dark===true?"grey":"white",
+              color:dark===true?"white":"black",
               fontWeight: boldt === true ? "bold" : "normal",
               fontStyle: italicT === true ? "italic" : "normal",
               width: "100%",
@@ -146,7 +158,7 @@ export default function TextareaRows(props) {
 
       <Grid container  spacing={3} p={2}>
           <Grid alignItems={"center"} item xs={12} sm={6} md={6} lg={6} xl={6} sx={{height:"100px"}}>
-          <Card style={{borderRadius: '20px', backgroundColor:"bisque"}} >{/*never give width*/}
+          <Card style={{borderRadius: '20px', backgroundColor:dark===true?"green":"bisque"}} >{/*never give width*/}
       
               <CardContent>
               <Typography gutterBottom variant="h5" sx={{ fontFamily: "monospace" }}>
