@@ -111,7 +111,7 @@ export default function TextareaRows(props) {
                 />
           <Textarea
             sx={{
-              backgroundColor: dark===true?"grey":"white",
+              backgroundColor: dark===true?"black":"white",
               color:dark===true?"white":"black",
               fontWeight: boldt === true ? "bold" : "normal",
               fontStyle: italicT === true ? "italic" : "normal",
@@ -132,39 +132,39 @@ export default function TextareaRows(props) {
       </Box>
       <Grid container spacing={1} p={3}>
         <Grid item lg={2} md={4} sm={6} xs={12}>
-          <ButtonUsage
+          <ButtonUsage mode={dark}
             click={checkIfEmpty(upperCase)}
             content="Upper Case"
           />
         </Grid>
         <Grid item lg={2} md={4} sm={6} xs={12}>
-          <ButtonUsage click={lowCase} content="Lower Case" />
+          <ButtonUsage mode={dark} click={lowCase} content="Lower Case" />
         </Grid>
         <Grid item lg={2} md={4} sm={6} xs={12}>
-          <ButtonUsage click={makeItBold} content="Bold" />
+          <ButtonUsage mode={dark} click={makeItBold} content="Bold" />
         </Grid>
         <Grid item lg={2} md={4} sm={6} xs={12}>
-          <ButtonUsage click={makeItalic} content="Italic" />
+          <ButtonUsage mode={dark} click={makeItalic} content="Italic" />
         </Grid>
         <Grid item lg={2} md={4} sm={6} xs={12}>
-          <ButtonUsage click={copyText} content="Copy Text" />
+          <ButtonUsage  mode={dark} click={copyText} content="Copy Text" />
         </Grid>
         <Grid item lg={2} md={4} sm={6} xs={12}>
-          <ButtonUsage click={handleClearClick} content="Clear All" />
+          <ButtonUsage mode={dark} click={handleClearClick} content="Clear All" />
         </Grid>
       </Grid>
       
         <Typography variant="h4" mt={1} pb={1} sx={{ fontFamily: "monospace" }}>your report</Typography>
 
-      <Grid container  spacing={3} p={2}>
+      <Grid  container  spacing={3} p={2}>
           <Grid alignItems={"center"} item xs={12} sm={6} md={6} lg={6} xl={6} sx={{height:"100px"}}>
-          <Card style={{borderRadius: '20px', backgroundColor:dark===true?"green":"bisque"}} >{/*never give width*/}
+          <Card style={{borderRadius: '20px', backgroundColor:dark===true?"black":"bisque"}} >{/*never give width*/}
       
               <CardContent>
-              <Typography gutterBottom variant="h5" sx={{ fontFamily: "monospace" }}>
+              <Typography gutterBottom variant="h5" sx={{ fontFamily: "monospace" , color:dark===true?"white":"black"}}>
                   Total Words
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={{color:dark===true?"white":"black"}}>
               You've entered {text===""?0:text[text.length-1]===" "?text.split(" ").length-1:text.split(" ").length} words and {text.length}{" "}
               characters.
           
@@ -175,12 +175,12 @@ export default function TextareaRows(props) {
         </Grid>
 
           <Grid alignItems={"center"} item xs={12} sm={6} md={6} lg={6} xl={6} sx={{height:"150px"}}>
-           <Card style={{ borderRadius: '20px',backgroundColor:"bisque"}}>
+           <Card style={{ borderRadius: '20px',backgroundColor:dark===true?"black":"bisque"}}sx={{color:dark===true?"white":"black"}}>
             <CardContent>
               <Typography gutterBottom variant="h5" sx={{ fontFamily: "monospace" }} >
                   Time Spent
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={{color:dark===true?"white":"black"}}>
               <MyStopwatch/>
           
               </Typography>
@@ -188,8 +188,12 @@ export default function TextareaRows(props) {
            
             
            </Card>
+          
+          </Grid> 
+         
           </Grid>
-      </Grid>
+         
+    
       
 
     </>

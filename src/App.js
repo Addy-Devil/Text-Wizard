@@ -10,12 +10,12 @@ function App() {
   const [darkMode,setDarkMode]=useState(false);
 
   const handleChange=()=>{
-    setDarkMode(true);  }
+    darkMode===false? setDarkMode(true):setDarkMode(false);  }
    
 return (
     <div >
        <Button fullWidth
-        style={{ backgroundColor: "black", color:'bisque' , borderRadius: '50px'}}
+        style={{ backgroundColor:darkMode===true?"black":"bisque", color:darkMode===true?'bisque':'black' , borderRadius: '50px'}}
         onClick={handleChange}>enable darkMode</Button>
        < TextareaRows mode={darkMode} />
       </div>
