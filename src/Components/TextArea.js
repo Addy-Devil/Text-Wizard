@@ -3,7 +3,7 @@ import { Box, Button } from "@mui/material";
 import Textarea from "@mui/joy/Textarea";
 //import IconButton from "@mui/joy/IconButton";
 import ButtonUsage from "./ButtonUsage";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
 import "../index.css";
 import Typography from "@mui/material/Typography";
@@ -15,7 +15,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 
-export default function TextareaRows(props) {
+export default function TextArea(props) {
   const [btext, setBtext] = useState("");
   const [color, setColor] = useState(" black");
   const [content, setContent] = useState(null);
@@ -23,9 +23,18 @@ export default function TextareaRows(props) {
   const [boldt, setBoldt] = useState(false);
   const [italicT, setItalicT] = useState(false);
   const [emojiB, setEmojiB] = useState(false);
+  const [mode,setMode]=useState("");
   
   console.log(props.mode); 
-
+  useEffect ( () => {
+    if (props.mode===true){
+      setMode(true)}
+    else if (props.mode===false){
+      setMode(false)
+    }
+    
+  },[props.mode])
+  
 
   const handleEmoji = () => {
     emojiB === false ? setEmojiB(true) : setEmojiB(false);
@@ -99,8 +108,8 @@ export default function TextareaRows(props) {
                 />
           <Textarea
             sx={{
-              backgroundColor: props.darkMode === true ? "black" : "white",
-              color:props.darkMode===true ? "white" : "black",
+              backgroundColor: props.mode === false ? "black" : "white",
+              color:props.mode===true ? "white" : "black",
               fontWeight: boldt === true ? "bold" : "normal",
               fontStyle: italicT === true ? "italic" : "normal",
               width: "100%",

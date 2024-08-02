@@ -3,6 +3,7 @@ import TextareaRows from './Components/TextArea';
 //import Switch from '@mui/material/Switch';
 import { useState } from 'react';
 import Button from "@mui/material/Button";
+import TextArea from './Components/TextArea';
 
 
 
@@ -14,12 +15,10 @@ function App() {
    
 return (
     <div >
-       <Button fullWidth
-        style={{ backgroundColor: "black", color:'bisque' , borderRadius: '50px'}}
+       <Button 
         onClick={handleChange}>enable darkMode</Button>
-       < TextareaRows mode={darkMode} />
+       < TextArea mode={setDarkMode} />
       </div>
   );
 }
-
 export default App;
